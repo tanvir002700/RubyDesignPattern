@@ -51,7 +51,7 @@ module AbstractFactory
   def get_shape(shape); end
 end
 
-class ShapeFactory < AbstractFactory
+class ShapeFactory
   include AbstractFactory
 
   def get_color(color=nil)
@@ -72,7 +72,9 @@ class ShapeFactory < AbstractFactory
   end
 end
 
-class ColorFactory < AbstractFactory
+class ColorFactory
+  include AbstractFactory
+
   def get_color(color=nil)
     case color
     when 'Red'
@@ -95,7 +97,7 @@ class Factory
     when 'Shape'
       ShapeFactory.new
     when 'Color'
-      Color.new
+      ColorFactory.new
     else
       nil
     end
