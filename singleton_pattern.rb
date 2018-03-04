@@ -13,3 +13,13 @@ class Logger
 
   private_class_method :new
 end
+
+require 'singleton'
+
+class SingletonClass
+  include Singleton
+
+  def initialize
+    puts 'initiazlie'
+  end
+end
