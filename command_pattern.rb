@@ -22,6 +22,7 @@ class Television
 
   def off
     puts "Tv is Off"
+    @status = false
   end
 
   def volume_up
@@ -41,74 +42,74 @@ end
 class TvOn
   include Command
 
-  def initialize(newDevice)
-    @theDevice = newDevice
+  def initialize(device)
+    @device = device
   end
 
   def execute
-    @theDevice.on
+    @device.on
   end
 
   def undo
-    @theDevice.off
+    @device.off
   end
 end
 
 class TvOff
   include Command
 
-  def initialize(newDevice)
-    @theDevice = newDevice
+  def initialize(device)
+    @device = device
   end
 
   def execute
-    @theDevice.off
+    @device.off
   end
 
   def undo
-    @theDevice.on
+    @device.on
   end
 end
 
 class TvVolumeUp
-  def initialize(new_device)
-    @the_device = new_device
+  def initialize(device)
+    @device = device
   end
 
   def execute
-    @the_device.volume_up
+    @device.volume_up
   end
 
   def undo
-    @the_device.volume_down
+    @device.volume_down
   end
 end
 
 class TvVolumeDown
-  def initialize(new_device)
-    @the_device = new_device
+  def initialize(device)
+    @device = device
   end
 
   def execute
-    @the_device.volume_down
+    @device.volume_down
   end
 
   def undo
-    @the_device.volume_up
+    @device.volume_up
   end
 end
 
 class DeviceButton
-  def initialize(new_command)
-    @the_command = new_command
+  def initialize(command)
+    @command = command
   end
 
   def press
-    @the_command.execute
+    @command.execute
   end
 
   def press_undo
-    @the_command.undo
+    @command.undo
   end
 end
 
