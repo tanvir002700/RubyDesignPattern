@@ -23,3 +23,23 @@ class EnemyTank
     puts "#{name} is driving the tank"
   end
 end
+
+class EnemyRobot
+  @random = Random.new
+
+
+  def smash_with_hand
+    attack_damage = @Random.random(100)
+    puts "Enemy Robot Does #{attack_damage} smash"
+  end
+
+  def walk_forward
+    movement = @random.random(100)
+    puts "Enemy Robot moves #{movement} steps"
+  end
+
+  def react_to_human(name)
+    puts "#{name} is control this robot"
+  end
+end
+
