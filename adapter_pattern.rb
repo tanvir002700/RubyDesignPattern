@@ -1,7 +1,7 @@
 module EnemyAttacker
   def fire_weapon; end
   def drive_forward; end
-  def assign_driver; end
+  def assign_driver(name); end
 end
 
 class EnemyTank
@@ -40,6 +40,26 @@ class EnemyRobot
 
   def react_to_human(name)
     puts "#{name} is control this robot"
+  end
+end
+
+class EnemyRobotAdapter
+  include EnemyAttacker
+
+  def initializer(robot)
+    @robot = robot
+  end
+
+  def fire_weapon
+    @robot.smash_with_hand
+  end
+
+  def drive_forward
+    @robot.walk_forward
+  end
+
+  def assign_driver(name)
+    @robot.react_to_human(name)
   end
 end
 
