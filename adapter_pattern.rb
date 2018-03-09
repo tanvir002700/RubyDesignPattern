@@ -7,10 +7,12 @@ end
 class EnemyTank
   include EnemyAttacker
 
-  @random = Random.new
+  def initialize
+    @random = Random.new
+  end
 
   def fire_weapon
-    attack_damage = @Random.random(100)
+    attack_damage = @random.rand(100)
     puts "Enemy Tank Does #{attack_damage} damage"
   end
 
@@ -25,16 +27,18 @@ class EnemyTank
 end
 
 class EnemyRobot
-  @random = Random.new
 
+  def initialize
+    @random = Random.new
+  end
 
   def smash_with_hand
-    attack_damage = @Random.random(100)
+    attack_damage = @random.rand(100)
     puts "Enemy Robot Does #{attack_damage} smash"
   end
 
   def walk_forward
-    movement = @random.random(100)
+    movement = @random.rand(100)
     puts "Enemy Robot moves #{movement} steps"
   end
 
@@ -46,7 +50,8 @@ end
 class EnemyRobotAdapter
   include EnemyAttacker
 
-  def initializer(robot)
+  def initialize(robot)
+    @random = Random.new
     @robot = robot
   end
 
