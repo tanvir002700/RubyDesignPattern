@@ -14,11 +14,23 @@ end
 
 class OperationOpenState
   def next(state)
-    valid?(state) ? OperationPendingPaymentState.new : raise IllegalStateJumpError
+    OperationPendingPaymentState.new if valid?(state)
   end
 
   def valid?(state)
     state == :pending_payment
+  end
+end
+
+class Operation
+  attr_reader :state
+
+  def initialize
+    @state = OperationOpenState.new
+  end
+
+  def trigger(state)
+    @state = @state.next(state)
   end
 end
 
