@@ -1,25 +1,47 @@
-module GetAtmData
-  def get_atm_state; end
-  def get_cache_in_machine; end
+class Hero
+  attr_accessor :keywords
+
+  def initialize
+    @keywords = []
+  end
 end
 
-class AtmMachine
-  include GetAtmData
-
-  def get_yes_card_state
-    :has_card
+class Computer
+  def initialize
+    @queue = []
   end
 
-  def get_no_card_state
-    :no_card
+  def add(command)
+    @queue << command
   end
 
-  def get_has_pin
-    :has_correct_pin
+  def execute
+    'executing commands'
+  end
+end
+
+class ComputerProxy
+  extend Forwardable
+
+  def_delegators :real_object, :add
+
+  def initialize(hero)
+    @hero = hero
   end
 
-  def get_no_cache_state
-    :atm_out_of_money
+  def execute
+    check_access
+    real_object.execute
+  end
+
+  def check_access
+    unless @hero.keywords.include?(:computer)
+      raise 'You have no access'
+    end
+  end
+
+  def real_object
+    @real_object ||= Computer.new
   end
 end
 
