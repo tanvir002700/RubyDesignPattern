@@ -1,50 +1,5 @@
-module Shape
-  def draw; end
-end
-
-class Rectangle
-  include Shape
-
-  def draw
-    puts "Inside Rectangle::draw() method"
-  end
-end
-
-class Circle
-  include Shape
-
-  def draw
-    puts "inside Circle::draw() method"
-  end
-end
-
-class Square
-  include Shape
-
-  def draw
-    puts "inside Square::draw() method"
-  end
-end
-
-module Color
-  def fill; end
-end
-
-class Red
-  include Color
-
-  def fill
-    puts "inside Red::fill() method"
-  end
-end
-
-class Blue
-  include Color
-
-  def fill
-    puts "inside Red::fill() method"
-  end
-end
+require './color.rb'
+require './shape.rb'
 
 module AbstractFactory
   def get_color(color); end
