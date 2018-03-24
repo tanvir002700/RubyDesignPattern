@@ -1,3 +1,6 @@
+require './pizza.rb'
+require './sauce.rb'
+
 module PizzaBuilder
   attr_reader :pizza
 
@@ -42,3 +45,4 @@ class SpicyPizzaBuilder
     @pizza.toppin = 'pepperoni+salami'
   end
 end
+
