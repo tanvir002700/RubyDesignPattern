@@ -7,9 +7,7 @@ class Product
   end
 
   def _clone(product_definition)
-    self.new(
-      self.name
-    )
+    self.new(self.name)
   end
 end
 
