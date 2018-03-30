@@ -4,7 +4,8 @@ class ConfirmState; end
 
 class PendingPaymentState
   def next(state)
-    ConfirmState.new if valid?(state)
+    raise IllegalStateJumpError.new unless valid?(state)
+    ConfirmState.new
   end
 
   def valid?(state)
@@ -15,7 +16,8 @@ end
 
 class OpenState
   def next(state)
-    PendingPaymentState.new if valid?(state)
+    raise IllegalStateJumpError.new unless valid?(state)
+    PendingPaymentState.new
   end
 
   def valid?(state)
