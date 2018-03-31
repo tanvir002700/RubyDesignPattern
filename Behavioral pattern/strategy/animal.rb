@@ -2,7 +2,6 @@ require './fly.rb'
 
 class Animal
   attr_reader :name, :flying_type
-
   def initialize(name)
     @name = name
     @flying_type = nil
