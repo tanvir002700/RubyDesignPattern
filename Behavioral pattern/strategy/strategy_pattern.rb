@@ -1,43 +1,11 @@
-class Flys
-  def fly; end
-end
+require './animal.rb'
 
-class ItFlys < Flys
-  def fly
-    return "Flying High"
-  end
-end
+dog = Dog.new
 
-class CantFly < Flys
-  def fly
-    return "I can't fly"
-  end
-end
+puts dog.name
+puts dog.flying_type
 
-class Animal
-  attr_reader :name, :flying_type
+bird = Bird.new
 
-  def initialize(name)
-    @name = name
-    @flying_type = nil
-  end
-
-  def try_to_fly
-    flying_type.fly
-  end
-end
-
-class Dog < Animal
-  def initialize
-    super("Dog")
-    @flying_type = CantFly.new
-  end
-end
-
-class Bird < Animal
-  def initialize
-    super("Bird")
-    @flying_type = ItFlys.new
-  end
-end
-
+puts bird.name
+puts bird.flying_type
