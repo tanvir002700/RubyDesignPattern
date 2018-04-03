@@ -21,7 +21,7 @@ module EntertainmentDevice
   end
 end
 
-class TVDevice
+class TvDevice
   include EntertainmentDevice
 
   def initialize(device_state, max_setting)
