@@ -1,3 +1,7 @@
+require './welcome_to_bank.rb'
+require './check.rb'
+require './bank_fund.rb'
+
 class BankAccountFacade
   attr_accessor :welcome, :account_checker, :code_checker, :fund
   def initialize(new_account_number, new_sec_code)
