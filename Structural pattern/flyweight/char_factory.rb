@@ -9,9 +9,9 @@ class CharFactory
   end
 
   def get_char(name, size)
-    char = @pool[name]
+    big_char = @pool[name]
 
-    if char.nil?
+    if big_char.nil?
       big_char = Char.new(name, size)
       @pool[name] = big_char
     end
