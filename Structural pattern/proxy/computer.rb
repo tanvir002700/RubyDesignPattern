@@ -12,6 +12,7 @@ class Computer
   end
 end
 
+require 'forwardable'
 class ComputerProxy
   extend Forwardable
 
