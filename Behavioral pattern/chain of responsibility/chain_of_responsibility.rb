@@ -3,7 +3,7 @@ module Chain
   def calculate; end
 end
 
-class Number
+class Numbers
   attr_accessor :number1, :number2
   attr_reader :calcuation_wanted
 
@@ -40,3 +40,10 @@ class SubtractNumbers
   end
 end
 
+add_chain = AddNumbers.new
+sub_chain = SubtractNumbers.new
+
+add_chain.next_chain = sub_chain
+
+request = Numbers.new(2,4, :add)
+add_chain.calculate(request)
